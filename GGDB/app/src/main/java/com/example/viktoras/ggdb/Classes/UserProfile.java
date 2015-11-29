@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 /**
  * Created by Viktoras on 2015-11-29.
+ * AB00 - Connection stringo pakeitimai
  */
 public class UserProfile {
     private String userName;
@@ -32,9 +33,9 @@ public class UserProfile {
             StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            String ConnectionString = "jdbc:sqlserver://"+hostIP + ":" + port +"\\SQLEXPRESS;databaseName=GGDB" + ";user=" + userName + ";password" + password +";" ;
-
-            con = DriverManager.getConnection(ConnectionString);
+            //String ConnectionString = "jdbc:jtds:sqlserver://"+hostIP + ":" + port +"\\SQLEXPRESS;databaseName=GGDB" + ";user=" + userName + ";password" + password +";" ;
+            String ConnectionString = "jdbc:jtds:sqlserver://"+hostIP + ":" + port +"/GGDB"; //>><<AB001
+            con = DriverManager.getConnection(ConnectionString, userName, password);
             stat = con.createStatement();
             String queryString = "select * from sysobjects where type = u";
             rs = stat.executeQuery(queryString);

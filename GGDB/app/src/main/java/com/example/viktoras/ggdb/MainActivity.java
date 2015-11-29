@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    //>VN001 Mygtukal login kuris perkelia i login activity
+    //>VN001 Mygtukas login kuris perkelia i login activity
     public void Login(View view) {
         System.out.println("nice");
         Intent intent = new Intent(MainActivity.this, Login.class);

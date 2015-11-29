@@ -37,13 +37,12 @@ public class UserProfile {
             String ConnectionString = "jdbc:jtds:sqlserver://"+hostIP + ":" + port +"/GGDB"; //>><<AB001
             con = DriverManager.getConnection(ConnectionString, userName, password);
             stat = con.createStatement();
-            String queryString = "select * from sysobjects where type = u";
+            String queryString = "select * from dbo.Users";
             rs = stat.executeQuery(queryString);
             while (rs.next()) {
-                System.out.println(rs.getString(1));
-
-
+                System.out.println(rs.getString(1) +  " " + rs.getString(4) + " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7));
             }
+            con.close();
 
         } catch (Exception e) {
             e.printStackTrace();

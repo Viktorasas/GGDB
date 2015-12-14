@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GGDB.iml" filepath="$PROJECT_DIR$/GGDB.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jtds-1.2.7/jtds-1.2.7.iml" filepath="$PROJECT_DIR$/jtds-1.2.7/jtds-1.2.7.iml" />
     </modules>
   </component>
 </project>

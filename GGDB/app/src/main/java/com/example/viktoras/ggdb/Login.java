@@ -18,13 +18,10 @@ public class Login extends  Activity {
     private String password;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
-
     }
     //>VN002
     public void Login(View view){
@@ -36,7 +33,6 @@ public class Login extends  Activity {
         password = passwordInput.getText().toString();
         UserProfile profile = new UserProfile(username, password);
         profile.Logon(username, password);
-
     }
     //<VN002
 

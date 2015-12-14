@@ -11,16 +11,20 @@ import android.widget.TextView;
 
 /**
  * Created by Viktoras on 2015-11-29.
- * AB00 - Connection stringo pakeitimai
+ * AB001 - Connection stringo pakeitimai
+ * AB002 - Vartotojo prisijungimo pakeitimai
  */
 public class UserProfile {
     private String userName;
     private String password;
+    private String firstName;
+    private String lastName;
+    private boolean loggedIn;
 
     public void Logon(String userName, String password){
 
         String url = "ACER\\SQLEXPRESS";
-        String hostIP = "192.168.1.66";
+        String hostIP = "10.3.3.125";
         String port = "49170";
         Connection con = null;
         Statement stat = null;
@@ -35,13 +39,17 @@ public class UserProfile {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             //String ConnectionString = "jdbc:jtds:sqlserver://"+hostIP + ":" + port +"\\SQLEXPRESS;databaseName=GGDB" + ";user=" + userName + ";password" + password +";" ;
             String ConnectionString = "jdbc:jtds:sqlserver://"+hostIP + ":" + port +"/GGDB"; //>><<AB001
-            con = DriverManager.getConnection(ConnectionString, userName, password);
+            con = DriverManager.getConnection(ConnectionString, "admin", "troll");
             stat = con.createStatement();
-            String queryString = "select * from dbo.Users";
+            //>>AB002
+            String queryString = "select * from dbo.Users where Users.Username = '"+userName+"' and Users.Password = '"+password+"';";
             rs = stat.executeQuery(queryString);
-            while (rs.next()) {
-                System.out.println(rs.getString(1) +  " " + rs.getString(4) + " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7));
+            while(rs.next()){
+                firstName = rs.getString(5);
+                lastName = rs.getString(6);
+                loggedIn = true;
             }
+            //<<AB002
             con.close();
 
         } catch (Exception e) {
@@ -62,6 +70,10 @@ public class UserProfile {
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean isLoggedIn(){
+        return loggedIn;
     }
 
     public void setUserName(String userName) {

@@ -2,6 +2,8 @@ package com.psi_stud.arturas.ggdb;
 
 import android.os.StrictMode;
 
+import net.sourceforge.jtds.jdbc.DateTime;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,6 +15,7 @@ import java.sql.Statement;
 public class Login {
     private String username;
     private String password;
+    private User user;
 
     public Login(String username, String password) {
         this.username = username;
@@ -20,7 +23,6 @@ public class Login {
     }
 
     public boolean Init() {
-        String url = "ACER\\SQLEXPRESS";
         String hostIP = "192.168.1.65";
         String port = "49170";
         Connection con = null;
@@ -39,8 +41,11 @@ public class Login {
             rs = stat.executeQuery(queryString);
             while (rs.next()) {
                 System.out.println(rs.getString(5) + " " + rs.getString(6));
-                if (username == rs.getString(2) && password == rs.getString(3))
-                    result =  true;
+                user = new User(rs.getString(2),rs.getString(3),rs.getString(5),rs.getString(6),rs.getString(7),"");
+                user.setIsLogedIn(true);
+                result = true;
+
+                System.out.println(result);
             }
             con.close();
         } catch (Exception e) {
@@ -49,5 +54,9 @@ public class Login {
             result =  false;
         }
         return result;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

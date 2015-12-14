@@ -1,30 +1,26 @@
 package com.psi_stud.arturas.ggdb;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnUserProfile;
-    public static User user;
+public class UserProfileActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_profile);
 
-        btnUserProfile = (Button) findViewById(R.id.btnUserProfile);
-
-        btnUserProfile.setOnClickListener(this);
+        TextView tv = (TextView)findViewById(R.id.username);
+        tv.setText(MainActivity.user.getUsername());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
         return true;
     }
 
@@ -41,19 +37,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnUserProfile:
-                if(user == null || !user.isLogedIn) {
-                    startActivity(new Intent(this, LoginActivity.class));
-                }
-                else{
-                    startActivity(new Intent(this, UserProfileActivity.class));
-                }
-                break;
-        }
     }
 }

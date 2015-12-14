@@ -33,7 +33,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.btnLogin:
                 Login login = new Login(etUsername.getText().toString(), etPassword.getText().toString());
-                login.Init();
+                if(login.Init()){
+                    MainActivity.user = login.getUser();
+                    System.out.println(MainActivity.user.getFirstName());
+                }
+                else{
+                    System.out.println("Nope");
+                }
                 break;
             case R.id.tvRegisterLink:
                 startActivity(new Intent(this, RegisterActivity.class));

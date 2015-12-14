@@ -36,9 +36,23 @@ public class MainActivity extends AppCompatActivity {
 
     //>VN001 Mygtukas login kuris perkelia i login activity
     public void Login(View view) {
+<<<<<<< HEAD
+=======
+        System.out.println("Login window");
+>>>>>>> 5df17bacbd23c2d09b1031a986098e47974b1baa
         Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
     }
+
+    //>VN002 Search maniu atidarymas
+    public void Search(View view) {
+        System.out.println("Search window");
+        Intent intent = new Intent(MainActivity.this, Search.class);
+        startActivity(intent);
+    }
+    //<VN002
+
+
     //<VN001
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

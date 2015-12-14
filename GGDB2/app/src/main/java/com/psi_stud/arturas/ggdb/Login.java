@@ -3,6 +3,7 @@ package com.psi_stud.arturas.ggdb;
 import android.os.StrictMode;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,6 +31,16 @@ public class Login {
             StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
+            String ConnectionString = "jdbc:jtds:sqlserver://"+hostIP + ":" + port +"/GGDB"; //>><<AB001
+            con = DriverManager.getConnection(ConnectionString, "admin", "troll");
+            stat = con.createStatement();
+            String queryString = "select * from dbo.Users where Users.Username = '"+username+"' and Users.Password = '"+password+"';";
+            rs = stat.executeQuery(queryString);
+            while(rs.next()){
+                System.out.println(rs.get)
+            }
+            //<<AB002
+            con.close();
         }
         catch (Exception e){
 

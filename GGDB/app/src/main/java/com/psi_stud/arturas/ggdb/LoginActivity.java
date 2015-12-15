@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Login login = new Login(etUsername.getText().toString(), etPassword.getText().toString());
                 if(login.Init()){
                     MainActivity.user = login.getUser();
-                    System.out.println(MainActivity.user.getFirstName());
+                    finish();
                 }
                 else{
                     System.out.println("Nope");

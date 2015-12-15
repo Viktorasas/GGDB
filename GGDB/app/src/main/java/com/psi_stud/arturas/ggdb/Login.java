@@ -23,11 +23,12 @@ public class Login {
     }
 
     public boolean Init() {
-        String hostIP = "192.168.1.65";
+        String hostIP = "192.168.43.52";
         String port = "49170";
         Connection con = null;
         Statement stat = null;
         ResultSet rs = null;
+        SQLService service = new SQLService();
         boolean result = false;
 
         try {
@@ -38,6 +39,7 @@ public class Login {
             con = DriverManager.getConnection(ConnectionString, "admin", "troll");
             stat = con.createStatement();
             String queryString = "select * from dbo.Users where Users.Username = '" + username + "' and Users.Password = '" + password + "';";
+            service.queryDB(queryString);
             rs = stat.executeQuery(queryString);
             while (rs.next()) {
                 System.out.println(rs.getString(5) + " " + rs.getString(6));

@@ -49,11 +49,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnUserProfile:
                 if(user == null || !user.isLogedIn) {
                     startActivity(new Intent(this, LoginActivity.class));
+                    if(user != null)
+                        startActivity(new Intent(this, UserProfileActivity.class));
                 }
                 else{
                     startActivity(new Intent(this, UserProfileActivity.class));
                 }
                 break;
+            case R.id.button2:
+                //startActivity(new Intent(this, SearchActivity.class));
         }
     }
 }

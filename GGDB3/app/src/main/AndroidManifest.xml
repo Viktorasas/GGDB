@@ -20,30 +20,23 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".RegisterActivity"
-            android:label="@string/title_activity_register" />
+            android:label="@string/title_activity_login" >
+        </activity>
         <activity
             android:name=".UserProfileActivity"
-            android:label="@string/title_activity_user_profile" />
+            android:label="@string/title_activity_user_profile" >
+        </activity>
         <activity
-            android:name=".NewsActivity"
-            android:label="@string/title_activity_news" />
-        <activity
-            android:name=".SearchActivity"
-            android:label="@string/title_activity_search" />
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
         <activity
             android:name=".GameActivity"
             android:label="@string/title_activity_game" >
         </activity>
         <activity
-            android:name=".WishListActivity"
-            android:label="@string/title_activity_wish_list" >
-        </activity>
-        <activity
-            android:name=".GameListActivity"
-            android:label="@string/title_activity_game_list" >
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search" >
         </activity>
     </application>
 

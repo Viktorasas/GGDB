@@ -9,4 +9,7 @@
     <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_game_profile">GameProfile</string>
     <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_wish_list">WishListActivity</string>
+    <string name="title_activity_game_list">GameListActivity</string>
 </resources>

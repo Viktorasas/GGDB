@@ -1,5 +1,7 @@
 package com.psi_stud.arturas.ggdb;
 
+import java.util.LinkedList;
+
 /**
  * Created by Arturas on 2015-12-16.
  */
@@ -41,6 +43,8 @@ public class Game {
 
     public void loadGame(){
         SQLService service = new SQLService();
-
+        LinkedList<LinkedList<String>> result = service.queryDB("SELECT * FROM Games WHERE ID = 1");//+gameID);
+        name = result.get(0).get(1);
+        description = result.get(0).get(5);
     }
 }

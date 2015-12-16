@@ -43,7 +43,7 @@ public class Login {
             rs = stat.executeQuery(queryString);
             while (rs.next()) {
                 System.out.println(rs.getString(5) + " " + rs.getString(6));
-                user = new User(rs.getString(2),rs.getString(3),rs.getString(5),rs.getString(6),rs.getString(7),"","","");
+                user = new User(rs.getString(2),rs.getString(3),rs.getString(5),rs.getString(6),rs.getString(7),"");
                 user.setIsLogedIn(true);
                 result = true;
 

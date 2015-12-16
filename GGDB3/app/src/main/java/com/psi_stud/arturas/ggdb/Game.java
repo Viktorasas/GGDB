@@ -21,6 +21,11 @@ public class Game {
         this.gameID = gameID;
     }
 
+    public Game(int gameID, String name){
+        this.gameID = gameID;
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -47,6 +52,10 @@ public class Game {
         this.name = name;
     }
 
+    public int getGameID() {
+        return gameID;
+    }
+
     public void loadGame(){
         String hostIP = "192.168.43.52";
         String port = "49170";
@@ -61,7 +70,7 @@ public class Game {
             String ConnectionString = "jdbc:jtds:sqlserver://" + hostIP + ":" + port + "/GGDB;user=admin;password=troll;"; //>><<AB001
             con = DriverManager.getConnection(ConnectionString, "admin", "troll");
             stat = con.createStatement();
-            String queryString = "select * from dbo.Games where ID = 1;";
+            String queryString = "select * from dbo.Games where ID = "+gameID+";";
             rs = stat.executeQuery(queryString);
             while (rs.next()) {
                 name = rs.getString(2);
@@ -71,5 +80,10 @@ public class Game {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

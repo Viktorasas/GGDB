@@ -10,17 +10,20 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button btnUserProfile;
-    Button btn;
+    Button btnSearch;
+    Button btnNews;
     public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn = (Button) findViewById(R.id.button2);
+        btnSearch = (Button) findViewById(R.id.btnSearch);
         btnUserProfile = (Button) findViewById(R.id.btnUserProfile);
+        btnNews = (Button) findViewById(R.id.btnNews);
 
         btnUserProfile.setOnClickListener(this);
-        btn.setOnClickListener(this);
+        btnSearch.setOnClickListener(this);
+        btnNews.setOnClickListener(this);
     }
 
     @Override
@@ -36,8 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(this, UserProfileActivity.class));
                 }
                 break;
-            case R.id.button2:
-                startActivity(new Intent(this, GameActivity.class));
+            case R.id.btnSearch:
+                startActivity(new Intent(this, SearchActivity.class));
+                break;
+            case R.id.btnNews:
+                startActivity(new Intent(this, NewsActivity.class));
                 break;
         }
     }

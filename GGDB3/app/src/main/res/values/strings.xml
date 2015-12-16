@@ -9,4 +9,7 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_game">GameActivity</string>
     <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_news_content">NewsContentActivity</string>
+    <string name="imageText">logo</string>
 </resources>

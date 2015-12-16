@@ -2,34 +2,43 @@ package com.psi_stud.arturas.ggdb;
 
 import android.os.StrictMode;
 
-import net.sourceforge.jtds.jdbc.DateTime;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * Created by Arturas on 2015-12-14.
+ * Created by Mindaugas on 2015-12-16.
  */
-public class Login {
-    private String username;
-    private String password;
-    private User user;
+public class News {
+    private int newsID;
+    private String title;
+    private String content;
+    private String author;
 
-    public Login(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public News(int newsID) {this.newsID = newsID; }
+    public News(int newsID, String title) {this.newsID = newsID; this.title = title; }
+    public String getContent() { return content; }
+
+    public void setContent(String content) { this.content = content; }
+
+    public String getAuthor(){
+        return author;
     }
 
-    public boolean Init() {
+    public void setAuthor(String author) { this.author = author; }
+
+    public String getTitle(){
+        return title;
+    }
+    public void setTitle(String title) { this.title= title; }
+
+    public void loadNews(){
         String hostIP = "192.168.43.52";
         String port = "49170";
         Connection con = null;
         Statement stat = null;
         ResultSet rs = null;
-        //SQLService service = new SQLService();
-        boolean result = false;
 
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -38,27 +47,25 @@ public class Login {
             String ConnectionString = "jdbc:jtds:sqlserver://" + hostIP + ":" + port + "/GGDB;user=admin;password=troll;"; //>><<AB001
             con = DriverManager.getConnection(ConnectionString, "admin", "troll");
             stat = con.createStatement();
-            String queryString = "select * from dbo.Users where Users.Username = '" + username + "' and Users.Password = '" + password + "';";
-            //service.queryDB(queryString);
+            String queryString = "select * from dbo.News where ID = "+newsID+";";
             rs = stat.executeQuery(queryString);
             while (rs.next()) {
-                System.out.println(rs.getString(5) + " " + rs.getString(6));
-                user = new User(rs.getString(2),rs.getString(3),rs.getString(5),rs.getString(6),rs.getString(7),"","","");
-                user.setIsLogedIn(true);
-                result = true;
-
-                System.out.println(result);
+                title = rs.getString(2);
+                author = rs.getString(3);
+                content = rs.getString(4);
             }
             con.close();
         } catch (Exception e) {
-            //e.printStackTrace();
             System.out.println(e.getMessage());
-            result =  false;
         }
-        return result;
     }
 
-    public User getUser() {
-        return user;
+    public int getNewsID() {
+        return newsID;
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }

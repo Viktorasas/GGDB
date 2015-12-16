@@ -7,13 +7,16 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
-    private Game game = new Game(1);
+    private Game game;
     private TextView tvDesc;
     private TextView tvGameName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        Bundle b = getIntent().getExtras();
+
+        game = new Game(b.getInt("gameID"));
 
         game.loadGame();
         tvDesc = (TextView) findViewById(R.id.tvDesc);

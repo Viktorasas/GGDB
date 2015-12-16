@@ -40,6 +40,7 @@ public class Game {
     }
 
     public void loadGame(){
+        SQLService service = new SQLService();
 
     }
 }

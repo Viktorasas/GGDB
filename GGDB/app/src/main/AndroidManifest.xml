@@ -40,6 +40,10 @@
             android:name=".NewsActivity"
             android:label="@string/title_activity_news" >
         </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
     </application>
 
 </manifest>

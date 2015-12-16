@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.psi_stud.arturas.ggdb">
+    package="com.psi_stud.arturas.ggdb" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <activity
+        android:name=".GameProfile"
+        android:label="@string/title_activity_game_profile" />
+    <activity
+        android:name=".SearchActivity"
+        android:label="SearchActivity" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,29 +27,19 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"></activity>
+            android:label="@string/title_activity_register" />
         <activity
             android:name=".UserProfileActivity"
-<<<<<<< HEAD
             android:label="@string/title_activity_user_profile" >
         </activity>
+        android:label="@string/title_activity_user_profile">
         <activity
             android:name=".NewsActivity"
-            android:label="@string/title_activity_news"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:label="@string/title_activity_news" >
         </activity>
-=======
-            android:label="@string/title_activity_user_profile"></activity>
-        <activity
-            android:name=".GameProfile"
-            android:label="@string/title_activity_game_profile"></activity>
-        <activity
-            android:name=".SearchActivity"
-            android:label="SearchActivity"></activity>
->>>>>>> origin/master
     </application>
 
 </manifest>

@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(this, UserProfileActivity.class));
                 }
                 break;
-            case R.id.button2:
-                //startActivity(new Intent(this, SearchActivity.class));
         }
     }
 }
